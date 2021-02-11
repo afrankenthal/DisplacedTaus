@@ -1,0 +1,5 @@
+skimmer/crab*
+*.pyc
+*.root
+skimmer/messages.txt
+skimmer/python/__init__.py
