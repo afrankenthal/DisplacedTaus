@@ -306,7 +306,7 @@ def main():
                 }
                 #total = merge_dicts() # -------------------------------> put here the custom samples you want!!!
             else:
-                print "ERROR! SampleType option %s not recoginzed." % options.sampleType
+                print "ERROR! SampleType option %s not recognized." % options.sampleType
                 sys.exit()
 
         if len(total) == 0:
