@@ -12,7 +12,7 @@ $ cmsenv
 $ git cms-init
 ```
 
-# Cloning the repository
+## Cloning the repository
 
 To contribute development, fork this repository on GitHub and then clone from your own fork:
 

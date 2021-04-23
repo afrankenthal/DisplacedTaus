@@ -3,3 +3,4 @@ skimmer/crab*
 *.root
 skimmer/messages.txt
 skimmer/python/__init__.py
+*checkpoint*
