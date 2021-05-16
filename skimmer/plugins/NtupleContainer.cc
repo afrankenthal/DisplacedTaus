@@ -4,9 +4,6 @@ NtupleContainer::NtupleContainer() : isData_(true) {}
 
 NtupleContainer::~NtupleContainer() {}
 
-void NtupleContainer::SetRecoTree(TTree *tree) { recoT = tree; }
-void NtupleContainer::SetGenTree(TTree *tree) { genT = tree; isData_ = false; }
-
 void NtupleContainer::CreateTreeBranches() {
 
     recoT->Branch("event_num", &eventNum_);
@@ -167,6 +164,7 @@ void NtupleContainer::CreateTreeBranches() {
     recoT->Branch("reco_PF_jet_corr_JERDown_phi", &recoPFJetCorrectedJERDownPhi_);
     recoT->Branch("reco_PF_HEM_flag", &recoPFHEMFlag_);
     recoT->Branch("reco_MHT_Pt", &MHTPt_);
+    recoT->Branch("lheComments", "std::string", &lheComments);
 
     if (!isData_) {
         genT->Branch("event_num", &eventNum_);
@@ -189,7 +187,36 @@ void NtupleContainer::CreateTreeBranches() {
         genT->Branch("gen_jet_phi", &genJetPhi_);
         genT->Branch("gen_MET_pt", &genLeadMETPt_);
         genT->Branch("gen_MET_phi", &genLeadMETPhi_);
+        genT->Branch("lheComments", "std::string", &lheComments);
     }
+
+    tauT->Branch("tau_gen_pt", &tau_gen_pt);
+    tauT->Branch("tau_gen_eta", &tau_gen_eta);
+    tauT->Branch("tau_gen_phi", &tau_gen_phi);
+    tauT->Branch("tau_gen_charge", &tau_gen_charge);
+    tauT->Branch("tau_gen_vis_mass", &tau_gen_vis_mass);
+    tauT->Branch("tau_gen_vis_pt", &tau_gen_vis_pt);
+    tauT->Branch("tau_gen_vis_eta", &tau_gen_vis_eta);
+    tauT->Branch("tau_gen_vis_phi", &tau_gen_vis_phi);
+    tauT->Branch("tau_gen_lxy", &tau_gen_lxy);
+    tauT->Branch("tau_gen_l3d", &tau_gen_l3d);
+    tauT->Branch("tau_gen_cosxy", &tau_gen_cosxy);
+    tauT->Branch("tau_gen_vx", &tau_gen_vx);
+    tauT->Branch("tau_gen_vy", &tau_gen_vy);
+    tauT->Branch("tau_gen_vz", &tau_gen_vz);
+    tauT->Branch("tau_gen_parent_ct", &tau_gen_parent_ct);
+    tauT->Branch("tau_gen_parent_ct2d", &tau_gen_parent_ct2d);
+    tauT->Branch("tau_gen_parent_mass", &tau_gen_parent_mass);
+    tauT->Branch("tau_reco_mass", &tau_reco_mass);
+    tauT->Branch("tau_reco_pt", &tau_reco_pt);
+    tauT->Branch("tau_reco_eta", &tau_reco_eta);
+    tauT->Branch("tau_reco_phi", &tau_reco_phi);
+    tauT->Branch("tau_reco_charge", &tau_reco_charge);
+    tauT->Branch("tau_l1_pt", &tau_l1_pt);
+    tauT->Branch("tau_l1_eta", &tau_l1_eta);
+    tauT->Branch("tau_l1_phi", &tau_l1_phi);
+    tauT->Branch("tau_l1_charge", &tau_l1_charge);
+    tauT->Branch("tau_l1_hwIso", &tau_l1_hwIso);
 
 }
 
@@ -365,5 +392,33 @@ void NtupleContainer::ClearTreeBranches() {
     genLeadMETPt_ = -9999;
     genLeadMETPhi_ = -9999;
 
+    // Tau info
+    tau_gen_pt.clear();
+    tau_gen_eta.clear();
+    tau_gen_phi.clear();
+    tau_gen_charge.clear();
+    tau_gen_vis_mass.clear();
+    tau_gen_vis_pt.clear();
+    tau_gen_vis_eta.clear();
+    tau_gen_vis_phi.clear();
+    tau_gen_lxy.clear();
+    tau_gen_l3d.clear();
+    tau_gen_cosxy.clear();
+    tau_gen_vx.clear();
+    tau_gen_vy.clear();
+    tau_gen_vz.clear();
+    tau_gen_parent_ct.clear();
+    tau_gen_parent_ct2d.clear();
+    tau_gen_parent_mass.clear();
+    tau_reco_mass.clear();
+    tau_reco_pt.clear();
+    tau_reco_eta.clear();
+    tau_reco_phi.clear();
+    tau_reco_charge.clear();
+    tau_l1_pt.clear();
+    tau_l1_eta.clear();
+    tau_l1_phi.clear();
+    tau_l1_charge.clear();
+    tau_l1_hwIso.clear();
 
 }

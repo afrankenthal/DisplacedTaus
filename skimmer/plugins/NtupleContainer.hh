@@ -11,10 +11,14 @@ class NtupleContainer {
 public:
     NtupleContainer();
     virtual ~NtupleContainer();
-    void SetRecoTree(TTree *tree);
-    void SetGenTree(TTree *tree);
     void CreateTreeBranches();
     void ClearTreeBranches();
+    void SetRecoTree(TTree * tree) { recoT = tree; }
+    void SetGenTree(TTree * tree) { genT = tree; isData_ = false; }
+    void SetTauTree(TTree * tree) { tauT = tree; }
+    void FillRecoTree() { recoT->Fill(); }
+    void FillGenTree() { genT->Fill(); }
+    void FillTauTree() { tauT->Fill(); }
 
     // Trigger and event-level branches
     unsigned long long fired_;
@@ -55,6 +59,37 @@ public:
     // Gen MET
     float genLeadMETPt_;
     float genLeadMETPhi_;
+
+    std::string lheComments;
+
+    // Tau branches
+    vector<float> tau_gen_pt;
+    vector<float> tau_gen_eta;
+    vector<float> tau_gen_phi;
+    vector<float> tau_gen_charge;
+    vector<float> tau_gen_vis_mass;
+    vector<float> tau_gen_vis_pt;
+    vector<float> tau_gen_vis_eta;
+    vector<float> tau_gen_vis_phi;
+    vector<float> tau_gen_lxy;
+    vector<float> tau_gen_l3d;
+    vector<float> tau_gen_cosxy;
+    vector<float> tau_gen_vx;
+    vector<float> tau_gen_vy;
+    vector<float> tau_gen_vz;
+    vector<float> tau_gen_parent_ct;
+    vector<float> tau_gen_parent_ct2d;
+    vector<float> tau_gen_parent_mass;
+    vector<float> tau_reco_mass;
+    vector<float> tau_reco_pt;
+    vector<float> tau_reco_eta;
+    vector<float> tau_reco_phi;
+    vector<float> tau_reco_charge;
+    vector<float> tau_l1_pt;
+    vector<float> tau_l1_eta;
+    vector<float> tau_l1_phi;
+    vector<float> tau_l1_charge;
+    vector<float> tau_l1_hwIso;
 
     // Reco branches
 
@@ -243,9 +278,8 @@ public:
     // inline void clearCutBit(int bit) { cuts_ &= ~(1 << bit); }
 
 private:
-    // Reco and gen TTrees
-    TTree * recoT;
-    TTree * genT;
+    // TTrees, not owned (owned by EDM Filesystem service)
+    TTree * recoT, * genT, * tauT;
     bool isData_;
 
 };

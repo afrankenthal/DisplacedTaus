@@ -16,6 +16,7 @@
 <use name="DataFormats/MuonReco"/>
 <use name="DataFormats/ParticleFlowCandidate"/>
 <use name="DataFormats/EgammaCandidates"/>
+<use name="DataFormats/TauReco"/>
 
 <use name="FWCore/Framework"/>
 <use name="FWCore/PluginManager"/>
