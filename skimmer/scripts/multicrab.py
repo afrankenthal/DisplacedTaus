@@ -126,15 +126,17 @@ def main():
             elif year == '2016':
                 config.Data.lumiMask = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_ReReco_07Aug2017_Collisions16_JSON.txt'
 
+        version = 'v3'
+
         if isData == True:
-            config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/v1/%s/data' % year
+            config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/%s/%s/data' % (version, year)
         else:
             if options.sampleType == 'signal':
-                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/v1/%s/signal' % year
+                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/%s/%s/signal' % (version, year)
             elif options.sampleType == 'MC':
-                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/v1/%s/bkg' % year
+                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/%s/%s/bkg' % (version, year)
             else:
-                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/v1/%s' % year
+                config.Data.outLFNDirBase = '/store/user/asterenb/DisplacedTaus/ntuples/%s/%s' % (version, year)
 
         config.Data.publication = False
         config.Data.ignoreLocality = True
@@ -300,9 +302,9 @@ def main():
                 #         'WJetsToLNu_HT-1200To2500_2016': '/WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM'
                 #         }
                 total = {
-                    # 'ggH_HToSSTo4Tau_2018': '/ggH_HToSSTo4Tau_MH-125_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18DRPremix-rp_102X_upgrade2018_realistic_v15-v1/GEN-SIM-RECO',
-                    # 'VBFH_HToSSTo4Tau_2018': '/VBFH_HToSSTo4Tau_MH-125_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18DRPremix-rp_102X_upgrade2018_realistic_v15_ext1-v1/AODSIM'
-                    'SMS_TStauStau_LH_mStau-225to250_2017': '/SMS-TStauStau_lefthanded_mStau-225to250_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17DRPremix-PU2017_GridpackScan_94X_mc2017_realistic_v11-v1/AODSIM'
+                     'ggH_HToSSTo4Tau_2018': '/ggH_HToSSTo4Tau_MH-125_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18DRPremix-rp_102X_upgrade2018_realistic_v15-v1/GEN-SIM-RECO',
+                     'VBFH_HToSSTo4Tau_2018': '/VBFH_HToSSTo4Tau_MH-125_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18DRPremix-rp_102X_upgrade2018_realistic_v15_ext1-v1/AODSIM'
+                    # 'SMS_TStauStau_LH_mStau-225to250_2017': '/SMS-TStauStau_lefthanded_mStau-225to250_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17DRPremix-PU2017_GridpackScan_94X_mc2017_realistic_v11-v1/AODSIM'
                 }
                 #total = merge_dicts() # -------------------------------> put here the custom samples you want!!!
             else:
