@@ -85,6 +85,9 @@ public:
     vector<float> tau_reco_eta;
     vector<float> tau_reco_phi;
     vector<float> tau_reco_charge;
+    vector<float> tau_reco_vx;
+    vector<float> tau_reco_vy;
+    vector<float> tau_reco_vz;
     vector<float> tau_l1_pt;
     vector<float> tau_l1_eta;
     vector<float> tau_l1_phi;

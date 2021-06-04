@@ -1494,7 +1494,21 @@ void ntupleAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
                 nt.tau_reco_eta.push_back(reco_tau->eta());
                 nt.tau_reco_phi.push_back(reco_tau->phi());
                 nt.tau_reco_charge.push_back(reco_tau->charge());
+                nt.tau_reco_vx.push_back(reco_tau->vx());
+                nt.tau_reco_vy.push_back(reco_tau->vy());
+                nt.tau_reco_vz.push_back(reco_tau->vz());
                 // nt.tau_reco_decaymode.push_back(); // TODO add this one
+            }
+            else {
+                nt.tau_reco_mass.push_back(-99.f);
+                nt.tau_reco_pt.push_back(-99.f);
+                nt.tau_reco_eta.push_back(-99.f);
+                nt.tau_reco_phi.push_back(-99.f);
+                nt.tau_reco_charge.push_back(-99);
+                nt.tau_reco_vx.push_back(-1000.f);
+                nt.tau_reco_vy.push_back(-1000.f);
+                nt.tau_reco_vz.push_back(-1000.f);
+
             }
 
             if (gen_l1_matches.find(idx_gen) != gen_l1_matches.end()) {
@@ -1504,6 +1518,13 @@ void ntupleAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
                 nt.tau_l1_phi.push_back(l1_tau->phi());
                 nt.tau_l1_charge.push_back(l1_tau->charge());
                 nt.tau_l1_hwIso.push_back(l1_tau->hwIso());
+            }
+            else {
+                nt.tau_l1_pt.push_back(-99.f);
+                nt.tau_l1_eta.push_back(-99.f);
+                nt.tau_l1_phi.push_back(-99.f);
+                nt.tau_l1_charge.push_back(-99);
+                nt.tau_l1_hwIso.push_back(-99.f);
             }
 
         }

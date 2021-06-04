@@ -212,6 +212,9 @@ void NtupleContainer::CreateTreeBranches() {
     tauT->Branch("tau_reco_eta", &tau_reco_eta);
     tauT->Branch("tau_reco_phi", &tau_reco_phi);
     tauT->Branch("tau_reco_charge", &tau_reco_charge);
+    tauT->Branch("tau_reco_vx", &tau_reco_vx);
+    tauT->Branch("tau_reco_vy", &tau_reco_vy);
+    tauT->Branch("tau_reco_vz", &tau_reco_vz);
     tauT->Branch("tau_l1_pt", &tau_l1_pt);
     tauT->Branch("tau_l1_eta", &tau_l1_eta);
     tauT->Branch("tau_l1_phi", &tau_l1_phi);
@@ -415,6 +418,9 @@ void NtupleContainer::ClearTreeBranches() {
     tau_reco_eta.clear();
     tau_reco_phi.clear();
     tau_reco_charge.clear();
+    tau_reco_vx.clear();
+    tau_reco_vy.clear();
+    tau_reco_vz.clear();
     tau_l1_pt.clear();
     tau_l1_eta.clear();
     tau_l1_phi.clear();
